@@ -51,6 +51,48 @@ public static class ExtendedEditor
     }
     #endregion
 
+    #region Divider
+    public static void Divider()
+    {
+        GUIStyle style = new();
+        style.fixedHeight = 2;
+        style.margin = new(5, 5, 25, 25);
+        style.normal.background = SolidTexture(Color.gray);
+
+        GUILayout.Box("", style);
+    }
+
+    public static void Divider(int thickness)
+    {
+        GUIStyle style = new();
+        style.fixedHeight = thickness;
+        style.margin = new(5, 5, 25, 25);
+        style.normal.background = SolidTexture(Color.gray);
+
+        GUILayout.Box("", style);
+    }
+
+    public static void Divider(RectOffset margin)
+    {
+        GUIStyle style = new();
+        style.fixedHeight = 2;
+        style.margin = margin;
+        style.normal.background = SolidTexture(Color.gray);
+
+        GUILayout.Box("", style);
+    }
+
+    public static void Divider(int thickness, RectOffset margin)
+    {
+        GUIStyle style = new();
+        style.fixedHeight = thickness;
+        style.margin = margin;
+        style.normal.background = SolidTexture(Color.gray);
+
+        GUILayout.Box("", style);
+    }
+    #endregion
+
     #region Button
     public static bool Button(string text)
     {
@@ -84,4 +126,12 @@ public static class ExtendedEditor
         return GUILayout.Button(image, style.ConvertToGUIStyle(EditorStyles.miniButton));
     }
     #endregion
+
+    static Texture2D SolidTexture(Color32 color)
+    {
+        Texture2D texture = new(1, 1);
+        texture.SetPixel(0, 0, color);
+        texture.Apply();
+        return texture;
+    }
 }
