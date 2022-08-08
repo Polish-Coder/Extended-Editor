@@ -3,12 +3,20 @@ using UnityEditor;
 
 public static class ExtendedEditor
 {
-    public static void Text(string content, ExtendedStyle style = null)
+    public static void Text(string content)
     {
-        if(style != null)
-            GUILayout.Label(content, style.ConvertToGUIStyle(EditorStyles.label));
-        else
-            GUILayout.Label(content);
+        GUILayout.Label(content);
+    }
+
+    public static void Text(string content, ExtendedStyle style)
+    {
+        if (style == null)
+        {
+            Debug.LogError("The button style is null");
+            return;
+        }
+
+        GUILayout.Label(content, style.ConvertToGUIStyle(EditorStyles.label));
     }
 
     public static void Space(int pixels = 10)
