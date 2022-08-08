@@ -58,5 +58,7 @@ public class ExampleWindow : EditorWindow
         {
             Debug.Log("Button 4");
         }
+
+        ExtendedEditor.Image(Resources.Load<Texture>("Textures/Example Image 1"));
     }
 }
