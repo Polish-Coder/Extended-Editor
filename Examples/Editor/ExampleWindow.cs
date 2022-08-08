@@ -12,10 +12,51 @@ public class ExampleWindow : EditorWindow
 
     void OnGUI()
     {
-        ExtendedEditor.Text("Extended Text", new ExtendedStyle() { FontColor = Color.cyan, FontHoverColor = Color.red, FontSize = 50 });
+        ExtendedEditor.Text("Extended Text",
+            new ExtendedStyle()
+            {
+                FontColor = Color.cyan,
+                FontHoverColor = Color.red,
+                FontSize = 50
+            }
+        );
+
         ExtendedEditor.Space();
-        ExtendedEditor.Text("Extended Text 2", new ExtendedStyle() { FontColor = Color.cyan, FontSize = 50 });
-        ExtendedEditor.Space(200);
+
+        ExtendedEditor.Text("Extended Text 2",
+            new ExtendedStyle()
+            {
+                FontColor = Color.cyan,
+                FontSize = 50
+            }
+        );
+
+        ExtendedEditor.Space(100);
+
         ExtendedEditor.Text("Extended Text 3");
+
+        if (ExtendedEditor.Button("Example Button"))
+        {
+            Debug.Log("Button");
+        }
+
+        if (ExtendedEditor.Button("Example Button 2", new ExtendedStyle()
+        {
+            FontColor = Color.green
+        }
+        ))
+        {
+            Debug.Log("Button 2");
+        }
+
+        if (ExtendedEditor.Button(Resources.Load<Texture>("Textures/Example Image 1")))
+        {
+            Debug.Log("Button 3");
+        }
+
+        if (ExtendedEditor.Button(Resources.Load<Texture>("Textures/Example Image 2")))
+        {
+            Debug.Log("Button 4");
+        }
     }
 }
