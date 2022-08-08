@@ -13,7 +13,9 @@ public class ExampleWindow : EditorWindow
     void OnGUI()
     {
         ExtendedEditor.Text("Extended Text", new ExtendedStyle() { FontColor = Color.cyan, FontHoverColor = Color.red, FontSize = 50 });
+        ExtendedEditor.Space();
         ExtendedEditor.Text("Extended Text 2", new ExtendedStyle() { FontColor = Color.cyan, FontSize = 50 });
+        ExtendedEditor.Space(200);
         ExtendedEditor.Text("Extended Text 3");
     }
 }

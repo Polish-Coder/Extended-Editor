@@ -10,4 +10,9 @@ public static class ExtendedEditor
         else
             GUILayout.Label(content);
     }
+
+    public static void Space(int pixels = 10)
+    {
+        GUILayout.Space(pixels);
+    }
 }
