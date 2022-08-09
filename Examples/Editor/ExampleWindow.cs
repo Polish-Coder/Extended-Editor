@@ -12,6 +12,29 @@ public class ExampleWindow : EditorWindow
 
     void OnGUI()
     {
+        ExtendedEditor.HorizontalLayout(() =>
+        {
+            if (ExtendedEditor.Button("Example Button"))
+            {
+                Debug.Log("Button");
+            }
+
+            if (ExtendedEditor.Button("Example Button"))
+            {
+                Debug.Log("Button");
+            }
+
+            if (ExtendedEditor.Button("Example Button"))
+            {
+                Debug.Log("Button");
+            }
+
+            if (ExtendedEditor.Button("Example Button"))
+            {
+                Debug.Log("Button");
+            }
+        });
+
         ExtendedEditor.Text("Extended Text",
             new ExtendedStyle()
             {

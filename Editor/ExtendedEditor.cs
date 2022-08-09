@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEditor;
 
@@ -124,6 +125,36 @@ public static class ExtendedEditor
         }
 
         return GUILayout.Button(image, style.ConvertToGUIStyle(EditorStyles.miniButton));
+    }
+
+    #endregion
+
+    #region Layouts
+    public static void HorizontalLayout(Action action)
+    {
+        GUILayout.BeginHorizontal();
+
+        action();
+
+        GUILayout.EndHorizontal();
+    }
+
+    public static void VerticalLayout(Action action)
+    {
+        GUILayout.BeginVertical();
+
+        action();
+
+        GUILayout.EndVertical();
+    }
+
+    public static void AreaLayout(Rect size, Action action)
+    {
+        GUILayout.BeginArea(size);
+
+        action();
+
+        GUILayout.EndArea();
     }
     #endregion
 
