@@ -4,6 +4,29 @@ using UnityEditor;
 
 public static class ExtendedEditor
 {
+    public static class Rects
+    {
+        public static Rect HorizontalCenter(float x, float y, float width, float height, EditorWindow window)
+        {
+            return new((x + window.position.width - width) / 2, y, width, height);
+        }
+
+        public static Rect HorizontalCenter(float width, float height, EditorWindow window)
+        {
+            return new((window.position.width - width) / 2, 0, width, height);
+        }
+
+        public static Rect VerticalCenter(float x, float y, float width, float height, EditorWindow window)
+        {
+            return new(x, (y + window.position.height - height) / 2, width, height);
+        }
+
+        public static Rect VerticalCenter(float width, float height, EditorWindow window)
+        {
+            return new(0, (window.position.height - height) / 2, width, height);
+        }
+    }
+
     #region Text
     public static void Text(string content)
     {
