@@ -123,6 +123,11 @@ public static class ExtendedEditor
         return GUILayout.Button(text);
     }
 
+    public static bool Button(Rect rect, string text)
+    {
+        return GUI.Button(rect, text);
+    }
+
     public static bool Button(string text, ExtendedStyle style)
     {
         if (style == null)
@@ -134,9 +139,25 @@ public static class ExtendedEditor
         return GUILayout.Button(text, style.ConvertToGUIStyle(EditorStyles.miniButton));
     }
 
+    public static bool Button(Rect rect, string text, ExtendedStyle style)
+    {
+        if (style == null)
+        {
+            Debug.LogError("The button style is null");
+            return false;
+        }
+
+        return GUI.Button(rect, text, style.ConvertToGUIStyle(EditorStyles.miniButton));
+    }
+
     public static bool Button(Texture image)
     {
         return GUILayout.Button(image);
+    }
+
+    public static bool Button(Rect rect, Texture image)
+    {
+        return GUI.Button(rect, image);
     }
 
     public static bool Button(Texture image, ExtendedStyle style)
@@ -148,6 +169,17 @@ public static class ExtendedEditor
         }
 
         return GUILayout.Button(image, style.ConvertToGUIStyle(EditorStyles.miniButton));
+    }
+
+    public static bool Button(Rect rect, Texture image, ExtendedStyle style)
+    {
+        if (style == null)
+        {
+            Debug.LogError("The button style is null");
+            return false;
+        }
+
+        return GUI.Button(rect, image, style.ConvertToGUIStyle(EditorStyles.miniButton));
     }
     #endregion
 
