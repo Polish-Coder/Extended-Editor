@@ -126,7 +126,6 @@ public static class ExtendedEditor
 
         return GUILayout.Button(image, style.ConvertToGUIStyle(EditorStyles.miniButton));
     }
-
     #endregion
 
     #region Layouts
@@ -155,6 +154,18 @@ public static class ExtendedEditor
         action();
 
         GUILayout.EndArea();
+    }
+    #endregion
+
+    #region Fields
+    public static UnityEngine.Object ObjectField(Rect rect, string text, UnityEngine.Object obj, Type type, bool allowSceneObjects)
+    {
+        return EditorGUI.ObjectField(rect, text, obj, type, allowSceneObjects);
+    }
+
+    public static UnityEngine.Object ObjectField(Rect rect, UnityEngine.Object obj, Type type, bool allowSceneObjects)
+    {
+        return EditorGUI.ObjectField(rect, obj, type, allowSceneObjects);
     }
     #endregion
 
