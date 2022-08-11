@@ -183,6 +183,23 @@ public static class ExtendedEditor
     }
     #endregion
 
+    #region Menu
+    public static void Menu(ref int index, string[] tabs)
+    {
+        index = GUILayout.Toolbar(index, tabs);
+    }
+
+    public static void Menu(ref int index, string[] tabs, ExtendedStyle style)
+    {
+        index = GUILayout.Toolbar(index, tabs, style.ConvertToGUIStyle(EditorStyles.miniButton));
+    }
+
+    public static void Menu(ref int index, string[] tabs, ExtendedStyle style, GUI.ToolbarButtonSize buttonSize)
+    {
+        index = GUILayout.Toolbar(index, tabs, style.ConvertToGUIStyle(EditorStyles.miniButton), buttonSize);
+    }
+    #endregion
+
     #region Layouts
     public static void HorizontalLayout(Action action)
     {
