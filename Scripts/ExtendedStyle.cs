@@ -8,6 +8,7 @@ public class ExtendedStyle
     public FontStyle FontStyle = new();
     public TextAnchor Alignment = new();
     public Vector2 ContentOffset = new();
+    public Color32 BackgroundColor = new();
 
     public ExtendedStyle() { }
 
@@ -16,6 +17,7 @@ public class ExtendedStyle
         FontColor = other.normal.textColor;
         FontHoverColor = other.hover.textColor;
         FontSize = other.fontSize;
+        FontStyle = other.fontStyle;
         Alignment = other.alignment;
         ContentOffset = other.contentOffset;
     }
@@ -46,5 +48,14 @@ public class ExtendedStyle
         style.fontStyle = !FontStyle.Equals(new FontStyle()) ? FontStyle : style.fontStyle;
         style.alignment = !Alignment.Equals(new TextAnchor()) ? Alignment : style.alignment;
         style.contentOffset = !ContentOffset.Equals(Vector2.zero) ? ContentOffset : style.contentOffset;
+        style.normal.background = !BackgroundColor.Equals(new Color32()) ? SolidTexture(BackgroundColor) : style.normal.background;
+    }
+
+    static Texture2D SolidTexture(Color32 color)
+    {
+        Texture2D texture = new(1, 1);
+        texture.SetPixel(0, 0, color);
+        texture.Apply();
+        return texture;
     }
 }
