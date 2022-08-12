@@ -286,6 +286,26 @@ public static class ExtendedEditor
     {
         return EditorGUI.ObjectField(rect, obj, type, allowSceneObjects);
     }
+
+    public static void TextField(Rect rect, string label, ref string text, ExtendedStyle style)
+    {
+        text = EditorGUI.TextField(rect, text, label, style.ConvertToGUIStyle(EditorStyles.textField));
+    }
+
+    public static void TextField(Rect rect, ref string text, ExtendedStyle style)
+    {
+        text = EditorGUI.TextField(rect, text, style.ConvertToGUIStyle(EditorStyles.textField));
+    }
+
+    public static void TextField(Rect rect, string label, ref string text)
+    {
+        text = EditorGUI.TextField(rect, label, text);
+    }
+
+    public static void TextField(Rect rect, ref string text)
+    {
+        text = EditorGUI.TextField(rect, text);
+    }
     #endregion
 
     static Texture2D SolidTexture(Color32 color)
