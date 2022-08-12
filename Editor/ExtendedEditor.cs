@@ -16,6 +16,16 @@ public static class ExtendedEditor
             return new((window.position.width - width) / 2, 0, width, height);
         }
 
+        public static Rect CustomHorizontalCenter(float x, float y, float width, float height, float containerWidth, EditorWindow window)
+        {
+            return new((x + containerWidth - width) / 2, y, width, height);
+        }
+
+        public static Rect CustomHorizontalCenter(float width, float height, float containerWidth, EditorWindow window)
+        {
+            return new((containerWidth - width) / 2, 0, width, height);
+        }
+
         public static Rect VerticalCenter(float x, float y, float width, float height, EditorWindow window)
         {
             return new(x, (y + window.position.height - height) / 2, width, height);
@@ -24,6 +34,16 @@ public static class ExtendedEditor
         public static Rect VerticalCenter(float width, float height, EditorWindow window)
         {
             return new(0, (window.position.height - height) / 2, width, height);
+        }
+
+        public static Rect CustomVerticalCenter(float x, float y, float width, float height, float containerHeight, EditorWindow window)
+        {
+            return new(x, (y + containerHeight - height) / 2, width, height);
+        }
+
+        public static Rect CustomVerticalCenter(float width, float height, float containerHeight, EditorWindow window)
+        {
+            return new(0, (containerHeight - height) / 2, width, height);
         }
     }
 
