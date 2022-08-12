@@ -210,6 +210,15 @@ public static class ExtendedEditor
         GUILayout.EndHorizontal();
     }
 
+    public static void HorizontalLayout(ExtendedStyle style, Action action)
+    {
+        GUILayout.BeginHorizontal(style.ConvertToGUIStyle(EditorStyles.label));
+
+        action();
+
+        GUILayout.EndHorizontal();
+    }
+
     public static void VerticalLayout(Action action)
     {
         GUILayout.BeginVertical();
@@ -219,9 +228,27 @@ public static class ExtendedEditor
         GUILayout.EndVertical();
     }
 
+    public static void VerticalLayout(ExtendedStyle style, Action action)
+    {
+        GUILayout.BeginVertical(style.ConvertToGUIStyle(EditorStyles.label));
+
+        action();
+
+        GUILayout.EndVertical();
+    }
+
     public static void AreaLayout(Rect size, Action action)
     {
         GUILayout.BeginArea(size);
+
+        action();
+
+        GUILayout.EndArea();
+    }
+
+    public static void AreaLayout(Rect size, ExtendedStyle style, Action action)
+    {
+        GUILayout.BeginArea(size, style.ConvertToGUIStyle(EditorStyles.label));
 
         action();
 
