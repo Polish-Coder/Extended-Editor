@@ -82,7 +82,7 @@ public class ExampleWindow : EditorWindow
             Debug.Log("Button 4");
         }
 
-        ExtendedEditor.Divider();
+        ExtendedEditor.HorizontalDivider();
 
         ExtendedEditor.Image(Resources.Load<Texture>("Textures/Example Image 1"));
     }
