@@ -4,16 +4,28 @@ using UnityEditor;
 
 public static class ExtendedEditor
 {
+    #region Window Size
+    public static float WindowWidth(EditorWindow window)
+    {
+        return window.position.width;
+    }
+
+    public static float WindowHeight(EditorWindow window)
+    {
+        return window.position.height;
+    }
+    #endregion
+
     public static class Rects
     {
         public static Rect HorizontalCenter(float x, float y, float width, float height, EditorWindow window)
         {
-            return new((x + window.position.width - width) / 2, y, width, height);
+            return new((x + WindowWidth(window) - width) / 2, y, width, height);
         }
 
         public static Rect HorizontalCenter(float width, float height, EditorWindow window)
         {
-            return new((window.position.width - width) / 2, 0, width, height);
+            return new((WindowWidth(window) - width) / 2, 0, width, height);
         }
 
         public static Rect CustomHorizontalCenter(float x, float y, float width, float height, float containerWidth)
@@ -28,12 +40,12 @@ public static class ExtendedEditor
 
         public static Rect VerticalCenter(float x, float y, float width, float height, EditorWindow window)
         {
-            return new(x, (y + window.position.height - height) / 2, width, height);
+            return new(x, (y + WindowHeight(window) - height) / 2, width, height);
         }
 
         public static Rect VerticalCenter(float width, float height, EditorWindow window)
         {
-            return new(0, (window.position.height - height) / 2, width, height);
+            return new(0, (WindowHeight(window) - height) / 2, width, height);
         }
 
         public static Rect CustomVerticalCenter(float x, float y, float width, float height, float containerHeight)
@@ -96,7 +108,7 @@ public static class ExtendedEditor
     #endregion
 
     #region Divider
-    public static void Divider()
+    public static void HorizontalDivider()
     {
         GUIStyle style = new();
         style.fixedHeight = 2;
@@ -106,7 +118,17 @@ public static class ExtendedEditor
         GUILayout.Box("", style);
     }
 
-    public static void Divider(int thickness)
+    public static void HorizontalDivider(Color32 color)
+    {
+        GUIStyle style = new();
+        style.fixedHeight = 2;
+        style.margin = new(5, 5, 25, 25);
+        style.normal.background = SolidTexture(color);
+
+        GUILayout.Box("", style);
+    }
+
+    public static void HorizontalDivider(int thickness)
     {
         GUIStyle style = new();
         style.fixedHeight = thickness;
@@ -116,7 +138,17 @@ public static class ExtendedEditor
         GUILayout.Box("", style);
     }
 
-    public static void Divider(RectOffset margin)
+    public static void HorizontalDivider(int thickness, Color32 color)
+    {
+        GUIStyle style = new();
+        style.fixedHeight = thickness;
+        style.margin = new(5, 5, 25, 25);
+        style.normal.background = SolidTexture(color);
+
+        GUILayout.Box("", style);
+    }
+
+    public static void HorizontalDivider(RectOffset margin)
     {
         GUIStyle style = new();
         style.fixedHeight = 2;
@@ -126,12 +158,120 @@ public static class ExtendedEditor
         GUILayout.Box("", style);
     }
 
-    public static void Divider(int thickness, RectOffset margin)
+    public static void HorizontalDivider(RectOffset margin, Color32 color)
+    {
+        GUIStyle style = new();
+        style.fixedHeight = 2;
+        style.margin = margin;
+        style.normal.background = SolidTexture(color);
+
+        GUILayout.Box("", style);
+    }
+
+    public static void HorizontalDivider(int thickness, RectOffset margin)
     {
         GUIStyle style = new();
         style.fixedHeight = thickness;
         style.margin = margin;
         style.normal.background = SolidTexture(Color.gray);
+
+        GUILayout.Box("", style);
+    }
+
+    public static void HorizontalDivider(int thickness, RectOffset margin, Color32 color)
+    {
+        GUIStyle style = new();
+        style.fixedHeight = thickness;
+        style.margin = margin;
+        style.normal.background = SolidTexture(color);
+
+        GUILayout.Box("", style);
+    }
+
+    public static void VerticalDivider(float length)
+    {
+        GUIStyle style = new();
+        style.fixedWidth = 2;
+        style.fixedHeight = length;
+        style.margin = new(25, 25, 5, 5);
+        style.normal.background = SolidTexture(Color.gray);
+
+        GUILayout.Box("", style);
+    }
+
+    public static void VerticalDivider(float length, Color32 color)
+    {
+        GUIStyle style = new();
+        style.fixedWidth = 2;
+        style.fixedHeight = length;
+        style.margin = new(25, 25, 5, 5);
+        style.normal.background = SolidTexture(color);
+
+        GUILayout.Box("", style);
+    }
+
+    public static void VerticalDivider(float length, int thickness)
+    {
+        GUIStyle style = new();
+        style.fixedWidth = thickness;
+        style.fixedHeight = length;
+        style.margin = new(25, 25, 5, 5);
+        style.normal.background = SolidTexture(Color.gray);
+
+        GUILayout.Box("", style);
+    }
+
+    public static void VerticalDivider(float length, int thickness, Color32 color)
+    {
+        GUIStyle style = new();
+        style.fixedWidth = thickness;
+        style.fixedHeight = length;
+        style.margin = new(25, 25, 5, 5);
+        style.normal.background = SolidTexture(color);
+
+        GUILayout.Box("", style);
+    }
+
+    public static void VerticalDivider(float length, RectOffset margin)
+    {
+        GUIStyle style = new();
+        style.fixedWidth = 2;
+        style.fixedHeight = length;
+        style.margin = margin;
+        style.normal.background = SolidTexture(Color.gray);
+
+        GUILayout.Box("", style);
+    }
+
+    public static void VerticalDivider(float length, RectOffset margin, Color32 color)
+    {
+        GUIStyle style = new();
+        style.fixedWidth = 2;
+        style.fixedHeight = length;
+        style.margin = margin;
+        style.normal.background = SolidTexture(color);
+
+        GUILayout.Box("", style);
+    }
+
+    public static void VerticalDivider(float length, int thickness, RectOffset margin)
+    {
+        GUIStyle style = new();
+        style.fixedWidth = thickness;
+        style.fixedHeight = length;
+        style.margin = margin;
+        style.normal.background = SolidTexture(Color.gray);
+
+        GUILayout.Box("", style);
+    }
+
+    public static void VerticalDivider(float length, int thickness, RectOffset margin, Color32 color)
+    {
+        GUIStyle style = new();
+        style.fixedWidth = thickness;
+        style.fixedHeight = length;
+        style.margin = margin;
+        style.normal.background = SolidTexture(color);
 
         GUILayout.Box("", style);
     }
